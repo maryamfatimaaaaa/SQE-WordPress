@@ -1,0 +1,9 @@
+node_modules/
+.vscode/
+.env
+.pytest_cache/
+__pycache__/
+cypress/screenshots/
+cypress/videos/
+db-data/
+wp-data/
