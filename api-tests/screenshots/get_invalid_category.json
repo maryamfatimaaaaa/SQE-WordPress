@@ -1,0 +1,7 @@
+{
+    "code": "rest_ability_category_not_found",
+    "message": "Ability category not found.",
+    "data": {
+        "status": 404
+    }
+}
