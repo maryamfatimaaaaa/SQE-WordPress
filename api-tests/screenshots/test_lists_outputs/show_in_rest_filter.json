@@ -1,0 +1,171 @@
+[
+    {
+        "name": "core/get-site-info",
+        "label": "Get Site Information",
+        "description": "Returns site information configured in WordPress. By default returns all fields, or optionally a filtered subset.",
+        "category": "site",
+        "input_schema": {
+            "type": "object",
+            "properties": {
+                "fields": {
+                    "type": "array",
+                    "items": {
+                        "type": "string",
+                        "enum": [
+                            "name",
+                            "description",
+                            "url",
+                            "wpurl",
+                            "admin_email",
+                            "charset",
+                            "language",
+                            "version"
+                        ]
+                    },
+                    "description": "Optional: Limit response to specific fields. If omitted, all fields are returned."
+                }
+            },
+            "additionalProperties": false,
+            "default": {}
+        },
+        "output_schema": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "The site title."
+                },
+                "description": {
+                    "type": "string",
+                    "description": "The site tagline."
+                },
+                "url": {
+                    "type": "string",
+                    "description": "The site home URL."
+                },
+                "wpurl": {
+                    "type": "string",
+                    "description": "The WordPress installation URL."
+                },
+                "admin_email": {
+                    "type": "string",
+                    "description": "The site administrator email address."
+                },
+                "charset": {
+                    "type": "string",
+                    "description": "The site character encoding."
+                },
+                "language": {
+                    "type": "string",
+                    "description": "The site language locale code."
+                },
+                "version": {
+                    "type": "string",
+                    "description": "The WordPress version."
+                }
+            },
+            "additionalProperties": false
+        },
+        "meta": {
+            "annotations": {
+                "readonly": true,
+                "destructive": false,
+                "idempotent": true
+            },
+            "show_in_rest": true
+        },
+        "_links": {
+            "self": [
+                {
+                    "href": "http://localhost:8000/wp-json/wp-abilities/v1/abilities/core/get-site-info",
+                    "targetHints": {
+                        "allow": [
+                            "GET"
+                        ]
+                    }
+                }
+            ],
+            "collection": [
+                {
+                    "href": "http://localhost:8000/wp-json/wp-abilities/v1/abilities"
+                }
+            ],
+            "wp:action-run": [
+                {
+                    "href": "http://localhost:8000/wp-json/wp-abilities/v1/abilities/core/get-site-info/run"
+                }
+            ]
+        }
+    },
+    {
+        "name": "core/get-environment-info",
+        "label": "Get Environment Info",
+        "description": "Returns core details about the site's runtime context for diagnostics and compatibility (environment, PHP runtime, database server info, WordPress version).",
+        "category": "site",
+        "input_schema": [],
+        "output_schema": {
+            "type": "object",
+            "required": [
+                "environment",
+                "php_version",
+                "db_server_info",
+                "wp_version"
+            ],
+            "properties": {
+                "environment": {
+                    "type": "string",
+                    "description": "The site's runtime environment classification (can be one of these: production, staging, development, local).",
+                    "enum": [
+                        "production",
+                        "staging",
+                        "development",
+                        "local"
+                    ]
+                },
+                "php_version": {
+                    "type": "string",
+                    "description": "The PHP runtime version executing WordPress."
+                },
+                "db_server_info": {
+                    "type": "string",
+                    "description": "The database server vendor and version string reported by the driver."
+                },
+                "wp_version": {
+                    "type": "string",
+                    "description": "The WordPress core version running on this site."
+                }
+            },
+            "additionalProperties": false
+        },
+        "meta": {
+            "annotations": {
+                "readonly": true,
+                "destructive": false,
+                "idempotent": true
+            },
+            "show_in_rest": true
+        },
+        "_links": {
+            "self": [
+                {
+                    "href": "http://localhost:8000/wp-json/wp-abilities/v1/abilities/core/get-environment-info",
+                    "targetHints": {
+                        "allow": [
+                            "GET"
+                        ]
+                    }
+                }
+            ],
+            "collection": [
+                {
+                    "href": "http://localhost:8000/wp-json/wp-abilities/v1/abilities"
+                }
+            ],
+            "wp:action-run": [
+                {
+                    "href": "http://localhost:8000/wp-json/wp-abilities/v1/abilities/core/get-environment-info/run"
+                }
+            ]
+        }
+    }
+]

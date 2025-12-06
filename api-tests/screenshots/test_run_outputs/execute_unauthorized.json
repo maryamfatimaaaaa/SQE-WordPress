@@ -1,0 +1,7 @@
+{
+    "code": "rest_ability_cannot_execute",
+    "message": "Sorry, you are not allowed to execute this ability.",
+    "data": {
+        "status": 401
+    }
+}

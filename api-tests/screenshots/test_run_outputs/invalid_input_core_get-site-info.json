@@ -1,0 +1,7 @@
+{
+    "code": "rest_ability_invalid_method",
+    "message": "Read-only abilities require GET method.",
+    "data": {
+        "status": 405
+    }
+}

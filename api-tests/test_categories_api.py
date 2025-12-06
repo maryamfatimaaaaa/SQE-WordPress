@@ -8,7 +8,7 @@ BASE_URL = "http://localhost:8000/wp-json"
 USERNAME = "maryamfatima"
 APP_PASSWORD = "7BXacgwVlWHXWNzwpL7ZtzGS"
 
-SCREENSHOT_DIR = Path("api-tests/screenshots")
+SCREENSHOT_DIR = Path("api-tests/screenshots/test_categories_outputs")
 SCREENSHOT_DIR.mkdir(parents=True, exist_ok=True)
 
 def save_response_screenshot(name, response):
