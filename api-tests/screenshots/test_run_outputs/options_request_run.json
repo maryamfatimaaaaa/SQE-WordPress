@@ -1,0 +1,67 @@
+{
+    "namespace": "wp-abilities/v1",
+    "methods": [
+        "GET",
+        "POST",
+        "PUT",
+        "PATCH",
+        "DELETE"
+    ],
+    "endpoints": [
+        {
+            "methods": [
+                "GET",
+                "POST",
+                "PUT",
+                "PATCH",
+                "DELETE"
+            ],
+            "args": {
+                "name": {
+                    "description": "Unique identifier for the ability.",
+                    "type": "string",
+                    "pattern": "^[a-zA-Z0-9\\-\\/]+$",
+                    "required": false
+                },
+                "input": {
+                    "description": "Input parameters for the ability execution.",
+                    "type": [
+                        "integer",
+                        "number",
+                        "boolean",
+                        "string",
+                        "array",
+                        "object",
+                        "null"
+                    ],
+                    "default": null,
+                    "required": false
+                }
+            }
+        }
+    ],
+    "schema": {
+        "$schema": "http://json-schema.org/draft-04/schema#",
+        "title": "ability-execution",
+        "type": "object",
+        "properties": {
+            "result": {
+                "description": "The result of the ability execution.",
+                "type": [
+                    "integer",
+                    "number",
+                    "boolean",
+                    "string",
+                    "array",
+                    "object",
+                    "null"
+                ],
+                "context": [
+                    "view",
+                    "edit"
+                ],
+                "readonly": true
+            }
+        }
+    }
+}

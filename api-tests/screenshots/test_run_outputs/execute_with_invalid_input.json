@@ -1,0 +1,7 @@
+{
+    "code": "ability_invalid_input",
+    "message": "Ability \"core/get-site-info\" has invalid input. Reason: input is not of type object.",
+    "data": {
+        "status": 400
+    }
+}
