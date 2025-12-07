@@ -1,41 +1,136 @@
-# Test Cases - Sidebars
+# Test Cases — Sidebars
 
-## Source Information
-- **Controller:** WP_REST_Sidebars_Controller
-- **Source File:** class-wp-rest-sidebars-controller.php
-- **Endpoint:** `/wp/v2/sidebars`
-- **Methods:** GET, HEAD
-- **Type:** collection
+    ## Source Information
+    - **Controller:** WP_REST_Sidebars_Controller
+    - **Source File:** class-wp-rest-sidebars-controller.php
+    - **Endpoint:** `/wp/v2/sidebars`
+    - **Methods:** GET, HEAD
+    - **Type:** collection
 
-## Generated Tests
+    ---
 
-This test suite was automatically generated from the PHP controller.
+    # Test Case Documentation
 
-### Test Coverage
+    
+    ### Test Case 1 — Retrieve All Items
 
-- Test Case 1: Retrieve all items
-- Test Case 2: Unauthorized access
-- Test Case 3: Pagination
-- Test Case 4: Response Schema Validation
-- Test Case 5: Response Content Type
-- Test Case 6: Response Structure Validation
-- Test Case 7: HEAD request (if supported)
+    **Name:** test_retrieve_all_items
 
-## Running Tests
+    **Purpose:** Fetch complete collection list.
 
-```bash
-pytest api-tests/generated/test_sidebars.py -v
-```
+    **API:** GET /wp/v2/sidebars
 
-## Test Details
+    **Steps:**
+    - Send authenticated GET request.
+- Validate response structure.
+- Save output.
 
-Each test case validates:
-- HTTP status codes
-- Response structure and schema
-- Authentication and authorization
-- Error handling
-- Content type validation
+    **Expected Results:**
+    - Status: 200
+- Response contains an array of items.
 
----
+    ---
+    
+    ### Test Case 2 — Unauthorized Access
 
-*Auto-generated from class-wp-rest-sidebars-controller.php*
+    **Name:** test_unauthorized_access
+
+    **Purpose:** Ensure unauthenticated users are blocked.
+
+    **API:** GET /wp/v2/sidebars
+
+    **Steps:**
+    - Send GET request without authentication.
+
+    **Expected Results:**
+    - Status: 401 or 403
+
+    ---
+    
+    ### Test Case 3 — Pagination
+
+    **Name:** test_pagination
+
+    **Purpose:** Verify pagination parameters.
+
+    **API:** GET /wp/v2/sidebars?page=2&per_page=5
+
+    **Steps:**
+    - Send authenticated request with pagination.
+- Validate pagination headers.
+
+    **Expected Results:**
+    - Status: 200
+- Headers include X-WP-Total & X-WP-TotalPages
+
+    ---
+    
+    ### Test Case 4 — Response Schema Validation
+
+    **Name:** test_response_schema_validation
+
+    **Purpose:** Ensure items follow expected schema.
+
+    **API:** GET /wp/v2/sidebars
+
+    **Steps:**
+    - Validate JSON fields by schema.
+
+    **Expected Results:**
+    - Status: 200
+
+    ---
+    
+    ### Test Case 5 — Response Content Type
+
+    **Name:** test_response_content_type
+
+    **Purpose:** Ensure correct MIME type.
+
+    **API:** GET /wp/v2/sidebars
+
+    **Steps:**
+    - Check Content-Type header.
+
+    **Expected Results:**
+    - Header: application/json
+
+    ---
+    
+    ### Test Case 6 — Response Structure Validation
+
+    **Name:** test_response_structure_validation
+
+    **Purpose:** Ensure response is an array of objects.
+
+    **API:** GET /wp/v2/sidebars
+
+    **Steps:**
+    - Validate array structure.
+
+    **Expected Results:**
+    - Status: 200
+
+    ---
+    
+    ### Test Case 7 — HEAD Request Validation
+
+    **Name:** test_head_request_validation
+
+    **Purpose:** Validate HEAD method behavior.
+
+    **API:** HEAD /wp/v2/sidebars
+
+    **Steps:**
+    - Send authenticated HEAD request.
+- Capture status and headers.
+
+    **Expected Results:**
+    - Status: 200, 404, or 405
+- If 200 → response body must be empty
+
+    ---
+    
+
+    *Auto-generated from class-wp-rest-sidebars-controller.php*
+    

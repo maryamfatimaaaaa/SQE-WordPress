@@ -1,40 +1,113 @@
-# Test Cases - Block-Patterns/Categorie
+# Test Cases — Block-Patterns/Categorie
 
-## Source Information
-- **Controller:** WP_REST_Block_Pattern_Categories_Controller
-- **Source File:** class-wp-rest-block-pattern-categories-controller.php
-- **Endpoint:** `/wp/v2/block-patterns/categories/{slug}`
-- **Methods:** GET
-- **Type:** single
+    ## Source Information
+    - **Controller:** WP_REST_Block_Pattern_Categories_Controller
+    - **Source File:** class-wp-rest-block-pattern-categories-controller.php
+    - **Endpoint:** `/wp/v2/block-patterns/categories/{slug}`
+    - **Methods:** GET
+    - **Type:** single
 
-## Generated Tests
+    ---
 
-This test suite was automatically generated from the PHP controller.
+    # Test Case Documentation
 
-### Test Coverage
+    
+    ### Test Case 1 — Get Valid Item
 
-- Test Case 1: Get valid item
-- Test Case 2: Get invalid item
-- Test Case 3: Unauthorized access
-- Test Case 4: Response Schema Validation
-- Test Case 5: Response Content Type
-- Test Case 6: Response Structure Validation
+    **Name:** test_get_valid_item
 
-## Running Tests
+    **Purpose:** Retrieve a valid resource.
 
-```bash
-pytest api-tests/generated/test_block-patterns/categorie.py -v
-```
+    **API:** GET /wp/v2/block-patterns/categories/{slug}/{id}
 
-## Test Details
+    **Steps:**
+    - Send authenticated GET request using valid ID.
 
-Each test case validates:
-- HTTP status codes
-- Response structure and schema
-- Authentication and authorization
-- Error handling
-- Content type validation
+    **Expected Results:**
+    - Status: 200
 
----
+    ---
+    
+    ### Test Case 2 — Get Invalid Item
 
-*Auto-generated from class-wp-rest-block-pattern-categories-controller.php*
+    **Name:** test_get_invalid_item
+
+    **Purpose:** Verify 404 for invalid resource.
+
+    **API:** GET /wp/v2/block-patterns/categories/{slug}/999999
+
+    **Steps:**
+    - Send GET request with non-existent ID.
+
+    **Expected Results:**
+    - Status: 404
+
+    ---
+    
+    ### Test Case 3 — Unauthorized Access
+
+    **Name:** test_unauthorized_access
+
+    **Purpose:** Ensure unauthenticated calls fail.
+
+    **API:** GET /wp/v2/block-patterns/categories/{slug}/{id}
+
+    **Steps:**
+    - Send GET without authentication.
+
+    **Expected Results:**
+    - Status: 401 or 403
+
+    ---
+    
+    ### Test Case 4 — Response Schema Validation
+
+    **Name:** test_response_schema_validation
+
+    **Purpose:** Validate single item schema.
+
+    **API:** GET /wp/v2/block-patterns/categories/{slug}/{id}
+
+    **Steps:**
+    - Check keys against schema.
+
+    **Expected Results:**
+    - Status: 200
+
+    ---
+    
+    ### Test Case 5 — Response Content Type
+
+    **Name:** test_response_content_type
+
+    **Purpose:** Ensure MIME type is correct.
+
+    **API:** GET /wp/v2/block-patterns/categories/{slug}/{id}
+
+    **Steps:**
+    - Inspect Content-Type header.
+
+    **Expected Results:**
+    - Header: application/json
+
+    ---
+    
+    ### Test Case 6 — Response Structure Validation
+
+    **Name:** test_response_structure_validation
+
+    **Purpose:** Ensure response is a JSON object.
+
+    **API:** GET /wp/v2/block-patterns/categories/{slug}/{id}
+
+    **Steps:**
+    - Validate object structure.
+
+    **Expected Results:**
+    - Status: 200
+
+    ---
+    
+
+    *Auto-generated from class-wp-rest-block-pattern-categories-controller.php*
+    

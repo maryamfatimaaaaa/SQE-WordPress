@@ -1379,83 +1379,200 @@ def test_response_content_type_{safe_name}():
         assert "application/json" in response.headers.get("Content-Type", ""), "Response should be JSON"'''
     
     def generate_documentation(self, endpoint: Dict) -> str:
-        """Generate markdown documentation with all test cases"""
-        test_cases = []
-        
+        """Generate markdown documentation with formatted test cases"""
+
+        # Normalize paths for f-strings (avoid backslash issues)
+        path = str(endpoint['path']).replace("\\", "/")
+        source_file = str(endpoint['file_name']).replace("\\", "/")
+
+        # ----- DEFINE TEST CASES BASED ON ENDPOINT TYPE -----
         if endpoint['resource_type'] == 'collection':
             test_cases = [
-                "Test Case 1: Retrieve all items",
-                "Test Case 2: Unauthorized access",
-                "Test Case 3: Pagination",
-                "Test Case 4: Response Schema Validation",
-                "Test Case 5: Response Content Type",
-                "Test Case 6: Response Structure Validation",
-                "Test Case 7: HEAD request (if supported)"
+                {
+                    "num": 1,
+                    "name": "Retrieve All Items",
+                    "purpose": "Fetch complete collection list.",
+                    "api": f"GET {path}",
+                    "steps": [
+                        "Send authenticated GET request.",
+                        "Validate response structure.",
+                        "Save output."
+                    ],
+                    "expected": [
+                        "Status: 200",
+                        "Response contains an array of items."
+                    ]
+                },
+                {
+                    "num": 2,
+                    "name": "Unauthorized Access",
+                    "purpose": "Ensure unauthenticated users are blocked.",
+                    "api": f"GET {path}",
+                    "steps": ["Send GET request without authentication."],
+                    "expected": ["Status: 401 or 403"]
+                },
+                {
+                    "num": 3,
+                    "name": "Pagination",
+                    "purpose": "Verify pagination parameters.",
+                    "api": f"GET {path}?page=2&per_page=5",
+                    "steps": [
+                        "Send authenticated request with pagination.",
+                        "Validate pagination headers."
+                    ],
+                    "expected": [
+                        "Status: 200",
+                        "Headers include X-WP-Total & X-WP-TotalPages"
+                    ]
+                },
+                {
+                    "num": 4,
+                    "name": "Response Schema Validation",
+                    "purpose": "Ensure items follow expected schema.",
+                    "api": f"GET {path}",
+                    "steps": ["Validate JSON fields by schema."],
+                    "expected": ["Status: 200"]
+                },
+                {
+                    "num": 5,
+                    "name": "Response Content Type",
+                    "purpose": "Ensure correct MIME type.",
+                    "api": f"GET {path}",
+                    "steps": ["Check Content-Type header."],
+                    "expected": ["Header: application/json"]
+                },
+                {
+                    "num": 6,
+                    "name": "Response Structure Validation",
+                    "purpose": "Ensure response is an array of objects.",
+                    "api": f"GET {path}",
+                    "steps": ["Validate array structure."],
+                    "expected": ["Status: 200"]
+                },
+                {
+                    "num": 7,
+                    "name": "HEAD Request Validation",
+                    "purpose": "Validate HEAD method behavior.",
+                    "api": f"HEAD {path}",
+                    "steps": [
+                        "Send authenticated HEAD request.",
+                        "Capture status and headers."
+                    ],
+                    "expected": [
+                        "Status: 200, 404, or 405",
+                        "If 200 → response body must be empty"
+                    ]
+                }
             ]
+
         elif endpoint['resource_type'] == 'single':
             test_cases = [
-                "Test Case 1: Get valid item",
-                "Test Case 2: Get invalid item",
-                "Test Case 3: Unauthorized access",
-                "Test Case 4: Response Schema Validation",
-                "Test Case 5: Response Content Type",
-                "Test Case 6: Response Structure Validation"
+                {
+                    "num": 1,
+                    "name": "Get Valid Item",
+                    "purpose": "Retrieve a valid resource.",
+                    "api": f"GET {path}/{{id}}",
+                    "steps": ["Send authenticated GET request using valid ID."],
+                    "expected": ["Status: 200"]
+                },
+                {
+                    "num": 2,
+                    "name": "Get Invalid Item",
+                    "purpose": "Verify 404 for invalid resource.",
+                    "api": f"GET {path}/999999",
+                    "steps": ["Send GET request with non-existent ID."],
+                    "expected": ["Status: 404"]
+                },
+                {
+                    "num": 3,
+                    "name": "Unauthorized Access",
+                    "purpose": "Ensure unauthenticated calls fail.",
+                    "api": f"GET {path}/{{id}}",
+                    "steps": ["Send GET without authentication."],
+                    "expected": ["Status: 401 or 403"]
+                },
+                {
+                    "num": 4,
+                    "name": "Response Schema Validation",
+                    "purpose": "Validate single item schema.",
+                    "api": f"GET {path}/{{id}}",
+                    "steps": ["Check keys against schema."],
+                    "expected": ["Status: 200"]
+                },
+                {
+                    "num": 5,
+                    "name": "Response Content Type",
+                    "purpose": "Ensure MIME type is correct.",
+                    "api": f"GET {path}/{{id}}",
+                    "steps": ["Inspect Content-Type header."],
+                    "expected": ["Header: application/json"]
+                },
+                {
+                    "num": 6,
+                    "name": "Response Structure Validation",
+                    "purpose": "Ensure response is a JSON object.",
+                    "api": f"GET {path}/{{id}}",
+                    "steps": ["Validate object structure."],
+                    "expected": ["Status: 200"]
+                }
             ]
-        elif endpoint['resource_type'] == 'action':
-            test_cases = [
-                "Test Case 1: Execute readonly ability",
-                "Test Case 2: Execute with wrong HTTP method",
-                "Test Case 3: Execute invalid ability",
-                "Test Case 4: Unauthorized execution",
-                "Test Case 5: Response Schema Validation",
-                "Test Case 6: Response Structure Validation"
-            ]
+
         else:
             test_cases = [
-                "Test Case 1: Get endpoint",
-                "Test Case 2: Unauthorized access",
-                "Test Case 3: Response Schema Validation",
-                "Test Case 4: Response Content Type"
+                {
+                    "num": 1,
+                    "name": "Basic GET Validation",
+                    "purpose": "Call endpoint and confirm response.",
+                    "api": f"GET {path}",
+                    "steps": ["Send GET request."],
+                    "expected": ["Status: 200 or documented alternative"]
+                }
             ]
-        
-        test_cases_list = "\n".join([f"- {tc}" for tc in test_cases])
-        
-        return f"""# Test Cases - {endpoint['name'].replace('_', ' ').title()}
 
-## Source Information
-- **Controller:** {endpoint['controller']}
-- **Source File:** {endpoint['file_name']}
-- **Endpoint:** `{endpoint['path']}`
-- **Methods:** {', '.join(endpoint['methods'])}
-- **Type:** {endpoint['resource_type']}
+        # ----- FORMAT TEST CASES -----
+        formatted_cases = ""
+        for tc in test_cases:
+            steps_md = "\n".join([f"- {s}" for s in tc["steps"]])
+            expected_md = "\n".join([f"- {e}" for e in tc["expected"]])
 
-## Generated Tests
+            formatted_cases += f"""
+    ### Test Case {tc['num']} — {tc['name']}
 
-This test suite was automatically generated from the PHP controller.
+    **Name:** test_{tc['name'].lower().replace(' ', '_')}
 
-### Test Coverage
+    **Purpose:** {tc['purpose']}
 
-{test_cases_list}
+    **API:** {tc['api']}
 
-## Running Tests
+    **Steps:**
+    {steps_md}
 
-```bash
-pytest api-tests/generated/test_{endpoint['name'].replace('_', '-')}.py -v
-```
+    **Expected Results:**
+    {expected_md}
 
-## Test Details
+    ---
+    """
 
-Each test case validates:
-- HTTP status codes
-- Response structure and schema
-- Authentication and authorization
-- Error handling
-- Content type validation
+        # ----- FINAL RETURN -----
+        return f"""# Test Cases — {endpoint['name'].replace('_', ' ').title()}
 
----
+    ## Source Information
+    - **Controller:** {endpoint['controller']}
+    - **Source File:** {source_file}
+    - **Endpoint:** `{path}`
+    - **Methods:** {', '.join(endpoint['methods'])}
+    - **Type:** {endpoint['resource_type']}
 
-*Auto-generated from {endpoint['file_name']}*
-"""
+    ---
+
+    # Test Case Documentation
+
+    {formatted_cases}
+
+    *Auto-generated from {source_file}*
+    """
+
+
 
 
 def main():
