@@ -1,10 +1,7 @@
 {
-    "name": "Wordpress",
-    "description": "",
-    "url": "http://localhost:8000",
-    "wpurl": "http://localhost:8000",
-    "admin_email": "maryamfatima6497@gmail.com",
-    "charset": "UTF-8",
-    "language": "en-US",
-    "version": "6.9"
+    "code": "rest_ability_cannot_execute",
+    "message": "Sorry, you are not allowed to execute this ability.",
+    "data": {
+        "status": 401
+    }
 }

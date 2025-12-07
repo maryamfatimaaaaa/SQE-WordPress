@@ -1,6 +1,7 @@
 {
-    "environment": "local",
-    "php_version": "8.3.28",
-    "db_server_info": "5.7.44",
-    "wp_version": "6.9"
+    "code": "rest_ability_cannot_execute",
+    "message": "Sorry, you are not allowed to execute this ability.",
+    "data": {
+        "status": 401
+    }
 }

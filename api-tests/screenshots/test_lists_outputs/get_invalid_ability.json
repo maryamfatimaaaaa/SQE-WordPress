@@ -1,7 +1,7 @@
 {
-    "code": "rest_ability_not_found",
-    "message": "Ability not found.",
+    "code": "rest_forbidden",
+    "message": "Sorry, you are not allowed to do that.",
     "data": {
-        "status": 404
+        "status": 401
     }
 }
