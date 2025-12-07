@@ -1,0 +1,8 @@
+{
+  "status": 200,
+  "url": "http://localhost:8000/wp-json/wp/v2/users/1/application-passwords",
+  "body": {
+    "deleted": true,
+    "count": 1
+  }
+}

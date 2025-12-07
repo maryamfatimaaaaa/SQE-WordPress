@@ -1,0 +1,11 @@
+{
+  "status": 401,
+  "url": "http://localhost:8000/wp-json/wp/v2/users/1/application-passwords/00000000-0000-0000-0000-000000000000",
+  "body": {
+    "code": "rest_cannot_read_application_password",
+    "message": "Sorry, you are not allowed to read this application password.",
+    "data": {
+      "status": 401
+    }
+  }
+}

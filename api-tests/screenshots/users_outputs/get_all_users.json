@@ -1,0 +1,33 @@
+[
+    {
+        "id": 1,
+        "name": "maryamfatima",
+        "url": "http://localhost:8000",
+        "description": "",
+        "link": "http://localhost:8000/author/maryamfatima/",
+        "slug": "maryamfatima",
+        "avatar_urls": {
+            "24": "https://secure.gravatar.com/avatar/ffdca644ebbbd8623e87c70ecb09419c928acf690d9d1f678a108dbb4cf7d3da?s=24&d=mm&r=g",
+            "48": "https://secure.gravatar.com/avatar/ffdca644ebbbd8623e87c70ecb09419c928acf690d9d1f678a108dbb4cf7d3da?s=48&d=mm&r=g",
+            "96": "https://secure.gravatar.com/avatar/ffdca644ebbbd8623e87c70ecb09419c928acf690d9d1f678a108dbb4cf7d3da?s=96&d=mm&r=g"
+        },
+        "meta": [],
+        "_links": {
+            "self": [
+                {
+                    "href": "http://localhost:8000/wp-json/wp/v2/users/1",
+                    "targetHints": {
+                        "allow": [
+                            "GET"
+                        ]
+                    }
+                }
+            ],
+            "collection": [
+                {
+                    "href": "http://localhost:8000/wp-json/wp/v2/users"
+                }
+            ]
+        }
+    }
+]

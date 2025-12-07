@@ -1,0 +1,434 @@
+[
+    {
+        "id": "archives",
+        "name": "Archives",
+        "description": "A monthly archive of your site\u2019s Posts.",
+        "is_multi": true,
+        "classname": "widget_archive",
+        "_links": {
+            "collection": [
+                {
+                    "href": "http://localhost:8000/wp-json/wp/v2/widget-types"
+                }
+            ],
+            "self": [
+                {
+                    "href": "http://localhost:8000/wp-json/wp/v2/widget-types/archives",
+                    "targetHints": {
+                        "allow": [
+                            "GET"
+                        ]
+                    }
+                }
+            ]
+        }
+    },
+    {
+        "id": "block",
+        "name": "Block",
+        "description": "A widget containing a block.",
+        "is_multi": true,
+        "classname": "widget_block",
+        "_links": {
+            "collection": [
+                {
+                    "href": "http://localhost:8000/wp-json/wp/v2/widget-types"
+                }
+            ],
+            "self": [
+                {
+                    "href": "http://localhost:8000/wp-json/wp/v2/widget-types/block",
+                    "targetHints": {
+                        "allow": [
+                            "GET"
+                        ]
+                    }
+                }
+            ]
+        }
+    },
+    {
+        "id": "calendar",
+        "name": "Calendar",
+        "description": "A calendar of your site\u2019s posts.",
+        "is_multi": true,
+        "classname": "widget_calendar",
+        "_links": {
+            "collection": [
+                {
+                    "href": "http://localhost:8000/wp-json/wp/v2/widget-types"
+                }
+            ],
+            "self": [
+                {
+                    "href": "http://localhost:8000/wp-json/wp/v2/widget-types/calendar",
+                    "targetHints": {
+                        "allow": [
+                            "GET"
+                        ]
+                    }
+                }
+            ]
+        }
+    },
+    {
+        "id": "categories",
+        "name": "Categories",
+        "description": "A list or dropdown of categories.",
+        "is_multi": true,
+        "classname": "widget_categories",
+        "_links": {
+            "collection": [
+                {
+                    "href": "http://localhost:8000/wp-json/wp/v2/widget-types"
+                }
+            ],
+            "self": [
+                {
+                    "href": "http://localhost:8000/wp-json/wp/v2/widget-types/categories",
+                    "targetHints": {
+                        "allow": [
+                            "GET"
+                        ]
+                    }
+                }
+            ]
+        }
+    },
+    {
+        "id": "custom_html",
+        "name": "Custom HTML",
+        "description": "Arbitrary HTML code.",
+        "is_multi": true,
+        "classname": "widget_custom_html",
+        "_links": {
+            "collection": [
+                {
+                    "href": "http://localhost:8000/wp-json/wp/v2/widget-types"
+                }
+            ],
+            "self": [
+                {
+                    "href": "http://localhost:8000/wp-json/wp/v2/widget-types/custom_html",
+                    "targetHints": {
+                        "allow": [
+                            "GET"
+                        ]
+                    }
+                }
+            ]
+        }
+    },
+    {
+        "id": "media_audio",
+        "name": "Audio",
+        "description": "Displays an audio player.",
+        "is_multi": true,
+        "classname": "widget_media_audio",
+        "_links": {
+            "collection": [
+                {
+                    "href": "http://localhost:8000/wp-json/wp/v2/widget-types"
+                }
+            ],
+            "self": [
+                {
+                    "href": "http://localhost:8000/wp-json/wp/v2/widget-types/media_audio",
+                    "targetHints": {
+                        "allow": [
+                            "GET"
+                        ]
+                    }
+                }
+            ]
+        }
+    },
+    {
+        "id": "media_gallery",
+        "name": "Gallery",
+        "description": "Displays an image gallery.",
+        "is_multi": true,
+        "classname": "widget_media_gallery",
+        "_links": {
+            "collection": [
+                {
+                    "href": "http://localhost:8000/wp-json/wp/v2/widget-types"
+                }
+            ],
+            "self": [
+                {
+                    "href": "http://localhost:8000/wp-json/wp/v2/widget-types/media_gallery",
+                    "targetHints": {
+                        "allow": [
+                            "GET"
+                        ]
+                    }
+                }
+            ]
+        }
+    },
+    {
+        "id": "media_image",
+        "name": "Image",
+        "description": "Displays an image.",
+        "is_multi": true,
+        "classname": "widget_media_image",
+        "_links": {
+            "collection": [
+                {
+                    "href": "http://localhost:8000/wp-json/wp/v2/widget-types"
+                }
+            ],
+            "self": [
+                {
+                    "href": "http://localhost:8000/wp-json/wp/v2/widget-types/media_image",
+                    "targetHints": {
+                        "allow": [
+                            "GET"
+                        ]
+                    }
+                }
+            ]
+        }
+    },
+    {
+        "id": "media_video",
+        "name": "Video",
+        "description": "Displays a video from the media library or from YouTube, Vimeo, or another provider.",
+        "is_multi": true,
+        "classname": "widget_media_video",
+        "_links": {
+            "collection": [
+                {
+                    "href": "http://localhost:8000/wp-json/wp/v2/widget-types"
+                }
+            ],
+            "self": [
+                {
+                    "href": "http://localhost:8000/wp-json/wp/v2/widget-types/media_video",
+                    "targetHints": {
+                        "allow": [
+                            "GET"
+                        ]
+                    }
+                }
+            ]
+        }
+    },
+    {
+        "id": "meta",
+        "name": "Meta",
+        "description": "Login, RSS, & WordPress.org links.",
+        "is_multi": true,
+        "classname": "widget_meta",
+        "_links": {
+            "collection": [
+                {
+                    "href": "http://localhost:8000/wp-json/wp/v2/widget-types"
+                }
+            ],
+            "self": [
+                {
+                    "href": "http://localhost:8000/wp-json/wp/v2/widget-types/meta",
+                    "targetHints": {
+                        "allow": [
+                            "GET"
+                        ]
+                    }
+                }
+            ]
+        }
+    },
+    {
+        "id": "nav_menu",
+        "name": "Navigation Menu",
+        "description": "Add a navigation menu to your sidebar.",
+        "is_multi": true,
+        "classname": "widget_nav_menu",
+        "_links": {
+            "collection": [
+                {
+                    "href": "http://localhost:8000/wp-json/wp/v2/widget-types"
+                }
+            ],
+            "self": [
+                {
+                    "href": "http://localhost:8000/wp-json/wp/v2/widget-types/nav_menu",
+                    "targetHints": {
+                        "allow": [
+                            "GET"
+                        ]
+                    }
+                }
+            ]
+        }
+    },
+    {
+        "id": "pages",
+        "name": "Pages",
+        "description": "A list of your site\u2019s Pages.",
+        "is_multi": true,
+        "classname": "widget_pages",
+        "_links": {
+            "collection": [
+                {
+                    "href": "http://localhost:8000/wp-json/wp/v2/widget-types"
+                }
+            ],
+            "self": [
+                {
+                    "href": "http://localhost:8000/wp-json/wp/v2/widget-types/pages",
+                    "targetHints": {
+                        "allow": [
+                            "GET"
+                        ]
+                    }
+                }
+            ]
+        }
+    },
+    {
+        "id": "recent-comments",
+        "name": "Recent Comments",
+        "description": "Your site\u2019s most recent comments.",
+        "is_multi": true,
+        "classname": "widget_recent_comments",
+        "_links": {
+            "collection": [
+                {
+                    "href": "http://localhost:8000/wp-json/wp/v2/widget-types"
+                }
+            ],
+            "self": [
+                {
+                    "href": "http://localhost:8000/wp-json/wp/v2/widget-types/recent-comments",
+                    "targetHints": {
+                        "allow": [
+                            "GET"
+                        ]
+                    }
+                }
+            ]
+        }
+    },
+    {
+        "id": "recent-posts",
+        "name": "Recent Posts",
+        "description": "Your site\u2019s most recent Posts.",
+        "is_multi": true,
+        "classname": "widget_recent_entries",
+        "_links": {
+            "collection": [
+                {
+                    "href": "http://localhost:8000/wp-json/wp/v2/widget-types"
+                }
+            ],
+            "self": [
+                {
+                    "href": "http://localhost:8000/wp-json/wp/v2/widget-types/recent-posts",
+                    "targetHints": {
+                        "allow": [
+                            "GET"
+                        ]
+                    }
+                }
+            ]
+        }
+    },
+    {
+        "id": "rss",
+        "name": "RSS",
+        "description": "Entries from any RSS or Atom feed.",
+        "is_multi": true,
+        "classname": "widget_rss",
+        "_links": {
+            "collection": [
+                {
+                    "href": "http://localhost:8000/wp-json/wp/v2/widget-types"
+                }
+            ],
+            "self": [
+                {
+                    "href": "http://localhost:8000/wp-json/wp/v2/widget-types/rss",
+                    "targetHints": {
+                        "allow": [
+                            "GET"
+                        ]
+                    }
+                }
+            ]
+        }
+    },
+    {
+        "id": "search",
+        "name": "Search",
+        "description": "A search form for your site.",
+        "is_multi": true,
+        "classname": "widget_search",
+        "_links": {
+            "collection": [
+                {
+                    "href": "http://localhost:8000/wp-json/wp/v2/widget-types"
+                }
+            ],
+            "self": [
+                {
+                    "href": "http://localhost:8000/wp-json/wp/v2/widget-types/search",
+                    "targetHints": {
+                        "allow": [
+                            "GET"
+                        ]
+                    }
+                }
+            ]
+        }
+    },
+    {
+        "id": "tag_cloud",
+        "name": "Tag Cloud",
+        "description": "A cloud of your most used tags.",
+        "is_multi": true,
+        "classname": "widget_tag_cloud",
+        "_links": {
+            "collection": [
+                {
+                    "href": "http://localhost:8000/wp-json/wp/v2/widget-types"
+                }
+            ],
+            "self": [
+                {
+                    "href": "http://localhost:8000/wp-json/wp/v2/widget-types/tag_cloud",
+                    "targetHints": {
+                        "allow": [
+                            "GET"
+                        ]
+                    }
+                }
+            ]
+        }
+    },
+    {
+        "id": "text",
+        "name": "Text",
+        "description": "Arbitrary text.",
+        "is_multi": true,
+        "classname": "widget_text",
+        "_links": {
+            "collection": [
+                {
+                    "href": "http://localhost:8000/wp-json/wp/v2/widget-types"
+                }
+            ],
+            "self": [
+                {
+                    "href": "http://localhost:8000/wp-json/wp/v2/widget-types/text",
+                    "targetHints": {
+                        "allow": [
+                            "GET"
+                        ]
+                    }
+                }
+            ]
+        }
+    }
+]

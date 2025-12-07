@@ -1,0 +1,11 @@
+{
+  "status": 401,
+  "url": "http://localhost:8000/wp-json/wp/v2/users/1/application-passwords",
+  "body": {
+    "code": "rest_cannot_list_application_passwords",
+    "message": "Sorry, you are not allowed to list application passwords for this user.",
+    "data": {
+      "status": 401
+    }
+  }
+}

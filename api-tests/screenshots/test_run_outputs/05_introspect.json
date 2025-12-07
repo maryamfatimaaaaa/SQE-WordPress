@@ -1,0 +1,28 @@
+{
+  "status": 200,
+  "url": "http://localhost:8000/wp-json/wp/v2/users/1/application-passwords/introspect",
+  "body": {
+    "uuid": "fd82b142-ed54-468a-a1af-87963ea72bf3",
+    "app_id": "",
+    "name": "pytest",
+    "created": "2025-12-07T12:24:51",
+    "last_used": "2025-12-07T12:26:36",
+    "last_ip": "172.18.0.1",
+    "_links": {
+      "self": [
+        {
+          "href": "http://localhost:8000/wp-json/wp/v2/users/1/application-passwords/fd82b142-ed54-468a-a1af-87963ea72bf3",
+          "targetHints": {
+            "allow": [
+              "GET",
+              "POST",
+              "PUT",
+              "PATCH",
+              "DELETE"
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

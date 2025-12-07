@@ -6,7 +6,7 @@ from pathlib import Path
 
 BASE_URL = "http://localhost:8000/wp-json"
 USERNAME = "maryamfatima"
-APP_PASSWORD = "7BXacgwVlWHXWNzwpL7ZtzGS"
+APP_PASSWORD = "I1KhCgDNwKwjYyo9SLqGbdm2"
 
 SCREENSHOT_DIR = Path("api-tests/screenshots/test_run_outputs")
 SCREENSHOT_DIR.mkdir(parents=True, exist_ok=True)
